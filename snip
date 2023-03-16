@@ -1,0 +1,13 @@
+ String string = "This is an example [string] with [square] [brackets]";
+
+        // Use a regular expression to find the last occurrence of a string within square brackets
+        Pattern pattern = Pattern.compile("\\[([^\\[\\]]+)\\][^\\[]*$");
+        Matcher matcher = pattern.matcher(string);
+
+        if (matcher.find()) {
+            // Extract the content of the last element within square brackets
+            String content = matcher.group(1);
+            System.out.println(content);
+        } else {
+            System.out.println("No match found");
+        }
